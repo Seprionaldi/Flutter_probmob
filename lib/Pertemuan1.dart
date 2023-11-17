@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:projeckflutter/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Pertemuan1 extends StatefulWidget {
   const Pertemuan1({super.key, required this.title});
@@ -68,7 +70,25 @@ class _Pertemuan1State extends State<Pertemuan1> {
                color:  Colors.white
              ),
            )
-           )
+           ),
+            ElevatedButton(
+                onPressed: () async {
+                  SharedPreferences pref = await SharedPreferences.getInstance();
+                  await pref.setInt("is_login", 0);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder:(context) => MyHomePage(title: "Hello Push")),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.blue),
+                child: Text(
+                  "logout",
+                  style: TextStyle(
+                      color:  Colors.white
+                  ),
+                )
+            )
           ],
         ),
       ),

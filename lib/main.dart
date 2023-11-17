@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeckflutter/Pertemuan1.dart';
+import 'package:projeckflutter/dashboard.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Pertemuan1(title: 'Flutter Demo Home Page buatan sendiri'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page buatan sendiri'),
     );
   }
 }
@@ -43,6 +45,21 @@ class _MyHomePageState extends State<MyHomePage> {
       _counter++;
     });
   }
+void navigateLogin() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    int? isLogin = pref.getInt("is_login");
+    if(isLogin == 0){
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder:(context) => Dashboard(title: "Hello Push")),
+      );
+    }
+}
+
+@override
+void initState(){
+    navigateLogin();
+}
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +84,24 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            ElevatedButton(
+                onPressed: () async {
+                  SharedPreferences pref = await SharedPreferences.getInstance();
+                  await pref.setInt("is_login", 1);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder:(context) => Dashboard(title: "Hello Push")),
+                );
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.blue),
+                child: Text(
+                  "login",
+                  style: TextStyle(
+                      color:  Colors.white
+                  ),
+                )
+            )
           ],
         ),
       ),
