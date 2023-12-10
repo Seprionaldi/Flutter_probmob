@@ -14,7 +14,13 @@ dependencies:
   sidebarx: ^0.16.2
   cupertino_icons: ^1.0.2
   shared_preferences: ^2.2.2
-  http: ^0.13.3  # Versi terbaru dari package http
+  flutter_map: ^6.0.1
+  latlong2: ^0.9.0
+  maps_launcher: ^2.2.0
+  flutter_map_location_marker: ^8.0.2
+  location: ^5.0.0
+  sliding_up_panel:  ^2.0.0+1
+  http: ^1.1.2  # Versi terbaru dari package http
 
 dev_dependencies:
   flutter_test:

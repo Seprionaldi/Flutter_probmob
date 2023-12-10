@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DashboardDosen extends StatefulWidget {
   final String title;
 
-  DashboardDosen({required this.title});
+  const DashboardDosen({super.key, required this.title});
 
   @override
   DashboarDosenState createState() => DashboarDosenState();
@@ -22,7 +21,7 @@ class DashboarDosenState extends State<DashboardDosen> {
         actions: <Widget>[
           IconButton(
             onPressed: (){},
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           ),
         ],
       ),
@@ -62,18 +61,18 @@ class DashboarDosenState extends State<DashboardDosen> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     ListTile(
-                      leading: Icon(Icons.person),
-                      title: Text("Argo Uchiha"),
-                      subtitle: Text("0822141112 - Argo@Staff.ukdw.ac.id"),
+                      leading: const Icon(Icons.person),
+                      title: const Text("Argo Uchiha"),
+                      subtitle: const Text("0822141112 - Argo@Staff.ukdw.ac.id"),
                       trailing: PopupMenuButton<String>(
                         itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-                          PopupMenuItem<String>(
-                            child: const Text("Update"),
+                          const PopupMenuItem<String>(
                             value: 'Doge',
+                            child: Text("Update"),
                           ),
-                          PopupMenuItem<String>(
-                            child: const Text("Delete"),
+                          const PopupMenuItem<String>(
                             value: 'Lion',
+                            child: Text("Delete"),
                           ),
                         ],
                       ),

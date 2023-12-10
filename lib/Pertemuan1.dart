@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:projeckflutter/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -41,20 +40,20 @@ class _Pertemuan1State extends State<Pertemuan1> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
            TextFormField(
-             decoration: new InputDecoration(
+             decoration: const InputDecoration(
                labelText: "Tes Input",
                hintText: "Teks yang akan di input",
              ),
            ),
-            Padding(
+            const Padding(
                 padding: EdgeInsets.all(16.0)
             ),
             TextField(
-              decoration: new InputDecoration(
+              decoration: InputDecoration(
                 labelText: "Tes Input 2",
                 hintText: "Teks yang akan di input",
                 border: OutlineInputBorder(
-                  borderRadius: new BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(5),
                 )
               ),
             ),
@@ -63,8 +62,8 @@ class _Pertemuan1State extends State<Pertemuan1> {
                  // Tindakan yang akan dijalankan saat tombol ditekan
                },
                style: ElevatedButton.styleFrom(
-                 primary: Colors.blue),
-               child: Text(
+                 backgroundColor: Colors.blue),
+               child: const Text(
              "Simpan",
              style: TextStyle(
                color:  Colors.white
@@ -77,12 +76,12 @@ class _Pertemuan1State extends State<Pertemuan1> {
                   await pref.setInt("is_login", 0);
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder:(context) => MyHomePage(title: "Hello Push")),
+                    MaterialPageRoute(builder:(context) => const MyHomePage(title: "Hello Push")),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.blue),
-                child: Text(
+                    backgroundColor: Colors.blue),
+                child: const Text(
                   "logout",
                   style: TextStyle(
                       color:  Colors.white

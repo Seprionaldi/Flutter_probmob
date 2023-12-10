@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projeckflutter/Pertemuan1.dart';
 import 'package:projeckflutter/dashboard.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -51,7 +50,7 @@ void navigateLogin() async {
     if(isLogin == 0){
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder:(context) => Dashboard(title: "Hello Push")),
+        MaterialPageRoute(builder:(context) => const Dashboard(title: "Hello Push")),
       );
     }
 }
@@ -90,12 +89,12 @@ void initState(){
                   await pref.setInt("is_login", 1);
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder:(context) => Dashboard(title: "Hello Push")),
+                  MaterialPageRoute(builder:(context) => const Dashboard(title: "Hello Push")),
                 );
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.blue),
-                child: Text(
+                    backgroundColor: Colors.blue),
+                child: const Text(
                   "login",
                   style: TextStyle(
                       color:  Colors.white

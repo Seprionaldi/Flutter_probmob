@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DashboardMhs extends StatefulWidget {
   final String title;
 
-  DashboardMhs({required this.title});
+  const DashboardMhs({super.key, required this.title});
 
   @override
   DashboardMhsState createState() => DashboardMhsState();
@@ -21,7 +20,7 @@ class DashboardMhsState extends State<DashboardMhs> {
         title: Text(widget.title),
       ),
       body: Container(
-        child: Center(
+        child: const Center(
           child: Text(
             "Dashboard Mahasiswa",
             style: TextStyle(
